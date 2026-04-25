@@ -1,0 +1,4 @@
+resources/js/components/ui/*
+resources/views/mail/*
+resources/js/app.ts
+resources/js/ssr.ts

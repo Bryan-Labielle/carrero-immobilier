@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/bryanlabielle/Library/Application Support/Herd/bin/php85",
+            "args": [
+                "/Users/bryanlabielle/Documents/Perso-sites/carrero-immobilier/src/artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}

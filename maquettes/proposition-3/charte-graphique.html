@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charte Graphique — Proposition 3 — CARRERO IMMOBILIER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f2f1', 100: '#dce0dd', 200: '#b8c1bb', 300: '#8f9d93',
+                            400: '#6b7a6f', 500: '#4A5A4F', 600: '#3d4b42', 700: '#313c35',
+                            800: '#252d28', 900: '#1a201c',
+                        },
+                        neutral: {
+                            50: '#FAFAF9', 100: '#F5F5F3', 200: '#E8E8E5', 300: '#D4D4CF',
+                            400: '#A3A39E', 500: '#737370', 600: '#4A4A47', 700: '#2E2E2C',
+                            800: '#1A1A19', 900: '#0D0D0C',
+                        },
+                        cream: '#F8F6F1',
+                    },
+                    fontFamily: {
+                        display: ['DM Serif Display', 'Georgia', 'serif'],
+                        body: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        html { scroll-behavior: smooth; }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #A3A39E;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #E8E8E5;
+        }
+
+        .color-swatch { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .color-swatch:hover { transform: translateY(-4px); }
+
+        .btn-primary { position: relative; overflow: hidden; z-index: 1; }
+        .btn-primary::before {
+            content: ''; position: absolute; inset: 0; background: #313c35; z-index: -1;
+            transform: scaleX(0); transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
+
+        .btn-outline {
+            transition: background 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+        }
+        .btn-outline:hover {
+            background: #4A5A4F;
+            color: white;
+            border-color: #4A5A4F;
+        }
+
+        .ghost-link { position: relative; }
+        .ghost-link .ghost-arrow {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ghost-link:hover .ghost-arrow {
+            transform: translateX(4px);
+        }
+
+        .property-card { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s; }
+        .property-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+        .property-card .card-img { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .property-card:hover .card-img { transform: scale(1.05); }
+
+        .input-field { transition: border-color 0.3s, box-shadow 0.3s; }
+        .input-field:focus { border-color: #4A5A4F; box-shadow: 0 0 0 3px rgba(74,90,79,0.06); outline: none; }
+
+        .sidebar-link {
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            color: #4A5A4F;
+            padding-left: 8px;
+        }
+    </style>
+</head>
+<body class="bg-white font-body text-neutral-700">
+
+    <!-- Sidebar Navigation -->
+    <nav class="fixed left-0 top-0 h-full w-56 bg-white/90 backdrop-blur-sm border-r border-neutral-200/60 z-50 hidden lg:flex flex-col justify-center px-8">
+        <div class="space-y-1">
+            <p class="font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-300 mb-4">Sections</p>
+            <a href="#palette" class="sidebar-link block py-1.5 font-mono text-[11px] text-neutral-400">01 Palette</a>
+            <a href="#typographie" class="sidebar-link block py-1.5 font-mono text-[11px] text-neutral-400">02 Typographie</a>
+            <a href="#boutons" class="sidebar-link block py-1.5 font-mono text-[11px] text-neutral-400">03 Boutons</a>
+            <a href="#composants" class="sidebar-link block py-1.5 font-mono text-[11px] text-neutral-400">04 Composants</a>
+            <a href="#principes" class="sidebar-link block py-1.5 font-mono text-[11px] text-neutral-400">05 Principes</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="lg:ml-56">
+
+        <!-- Header -->
+        <header class="border-b border-neutral-200/60">
+            <div class="max-w-[1200px] mx-auto px-8 py-24">
+                <span class="font-mono text-[11px] tracking-[0.3em] uppercase text-neutral-400 block mb-6">Design System</span>
+                <h1 class="font-display text-6xl md:text-7xl text-neutral-800 mb-4">Charte graphique</h1>
+                <h2 class="font-display text-3xl md:text-4xl text-neutral-800 mb-6">Proposition 3</h2>
+                <p class="text-lg text-neutral-500 font-light max-w-2xl">Direction artistique : Minimaliste architectural sur fond blanc</p>
+            </div>
+        </header>
+
+        <main class="max-w-[1200px] mx-auto px-8">
+
+            <!-- ==================== 01 PALETTE DE COULEURS ==================== -->
+            <section id="palette" class="py-24 border-b border-neutral-200/60">
+                <p class="section-label">01 — Palette de couleurs</p>
+
+                <h2 class="font-display text-3xl text-neutral-800 mb-4">Couleurs du systeme</h2>
+                <p class="text-[15px] text-neutral-500 font-light mb-14">Deux gammes principales : le vert Carrero (primary) et les neutres. Le fond blanc pur (#FFFFFF) remplace le creme des propositions 1 et 2 pour une approche plus lumineuse et contemporaine.</p>
+
+                <!-- Primary scale -->
+                <h3 class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary-500 mb-6">Vert principal (Primary)</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-3 mb-16">
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-50 border border-neutral-200/40"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">50</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#f0f2f1</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-100"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">100</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#dce0dd</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-200"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">200</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#b8c1bb</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-300"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">300</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#8f9d93</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-400"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">400</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#6b7a6f</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-500 ring-2 ring-primary-500 ring-offset-2 ring-offset-white"></div>
+                        <p class="font-mono text-[10px] text-neutral-800 mt-2 font-bold">500</p>
+                        <p class="font-mono text-[10px] text-neutral-600">#4A5A4F</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-600"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">600</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#3d4b42</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-700"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">700</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#313c35</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-800"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">800</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#252d28</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square bg-primary-900"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">900</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#1a201c</p>
+                    </div>
+                </div>
+
+                <!-- Neutral scale -->
+                <h3 class="font-mono text-[11px] tracking-[0.2em] uppercase text-neutral-500 mb-6">Gris neutres</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-16">
+                    <div class="color-swatch">
+                        <div class="aspect-square border border-neutral-200/40" style="background:#FAFAF9;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">50</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#FAFAF9</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#F5F5F3;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">100</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#F5F5F3</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#E8E8E5;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">200</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#E8E8E5</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#D4D4CF;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">300</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#D4D4CF</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#A3A39E;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">400</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#A3A39E</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#737370;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">500</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#737370</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#4A4A47;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">600</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#4A4A47</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-square" style="background:#2E2E2C;"></div>
+                        <p class="font-mono text-[10px] text-neutral-600 mt-2">700</p>
+                        <p class="font-mono text-[10px] text-neutral-400">#2E2E2C</p>
+                    </div>
+                </div>
+
+                <!-- Special colors -->
+                <h3 class="font-mono text-[11px] tracking-[0.2em] uppercase text-neutral-500 mb-6">Couleurs cles</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="color-swatch">
+                        <div class="aspect-[3/2] bg-white border-2 border-neutral-200 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="font-mono text-[11px] text-neutral-400">Fond principal</span>
+                            </div>
+                        </div>
+                        <p class="text-[13px] font-medium text-neutral-700 mt-3">Blanc pur</p>
+                        <p class="font-mono text-[10px] text-neutral-400 mt-0.5">#FFFFFF</p>
+                        <p class="text-[12px] text-primary-500 mt-1 font-medium">Differenciateur P3 vs P1/P2 (creme #F8F6F1)</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-[3/2] bg-primary-500"></div>
+                        <p class="text-[13px] font-medium text-neutral-700 mt-3">Vert Carrero</p>
+                        <p class="font-mono text-[10px] text-neutral-400 mt-0.5">#4A5A4F</p>
+                        <p class="text-[12px] text-neutral-400 mt-0.5 font-light">CTA, accents, liens</p>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="aspect-[3/2]" style="background:#1A1A19;"></div>
+                        <p class="text-[13px] font-medium text-neutral-700 mt-3">Noir</p>
+                        <p class="font-mono text-[10px] text-neutral-400 mt-0.5">#1A1A19</p>
+                        <p class="text-[12px] text-neutral-400 mt-0.5 font-light">Titres, texte fort</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== 02 TYPOGRAPHIE ==================== -->
+            <section id="typographie" class="py-24 border-b border-neutral-200/60">
+                <p class="section-label">02 — Typographie</p>
+
+                <h2 class="font-display text-3xl text-neutral-800 mb-14">Specimens typographiques</h2>
+
+                <!-- DM Serif Display -->
+                <div class="mb-20">
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary-500 block mb-8">DM Serif Display — Titres, prix</span>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-baseline gap-8 pb-6 border-b border-neutral-200/40">
+                            <div class="w-20 shrink-0"><p class="font-mono text-[11px] text-neutral-400">H1</p><p class="font-mono text-[10px] text-neutral-300">64px</p></div>
+                            <p class="font-display text-neutral-800" style="font-size: 64px; line-height: 1.05;">Acheter un bien</p>
+                        </div>
+                        <div class="flex items-baseline gap-8 pb-6 border-b border-neutral-200/40">
+                            <div class="w-20 shrink-0"><p class="font-mono text-[11px] text-neutral-400">H2</p><p class="font-mono text-[10px] text-neutral-300">48px</p></div>
+                            <p class="font-display text-neutral-800" style="font-size: 48px; line-height: 1.1;">Acheter un bien</p>
+                        </div>
+                        <div class="flex items-baseline gap-8 pb-6 border-b border-neutral-200/40">
+                            <div class="w-20 shrink-0"><p class="font-mono text-[11px] text-neutral-400">H3</p><p class="font-mono text-[10px] text-neutral-300">36px</p></div>
+                            <p class="font-display text-neutral-800" style="font-size: 36px; line-height: 1.15;">Acheter un bien</p>
+                        </div>
+                        <div class="flex items-baseline gap-8 pb-6 border-b border-neutral-200/40">
+                            <div class="w-20 shrink-0"><p class="font-mono text-[11px] text-neutral-400">H4</p><p class="font-mono text-[10px] text-neutral-300">24px</p></div>
+                            <p class="font-display text-neutral-800" style="font-size: 24px; line-height: 1.2;">Acheter un bien</p>
+                        </div>
+                        <div class="flex items-baseline gap-8 pb-6 border-b border-neutral-200/40">
+                            <div class="w-20 shrink-0"><p class="font-mono text-[11px] text-neutral-400">Prix</p><p class="font-mono text-[10px] text-neutral-300">28px</p></div>
+                            <p class="font-display text-3xl text-primary-500">485 000 &euro;</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 border border-neutral-200/40 inline-block">
+                        <p class="font-mono text-[11px] text-neutral-400">'DM Serif Display', Georgia, serif — Regular + Italic</p>
+                    </div>
+                </div>
+
+                <!-- Outfit -->
+                <div class="mb-20">
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary-500 block mb-8">Outfit — Corps de texte, boutons</span>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="pb-6 border-b border-neutral-200/40">
+                            <p class="font-mono text-[10px] text-neutral-400 mb-2">Body — 15px / light / line-height 1.9</p>
+                            <p class="text-[15px] text-neutral-600 font-light leading-[1.9] max-w-2xl">Chez Carrero Immobilier, nous appliquons une methode issue de l'investissement immobilier professionnel. Chaque bien est presente de maniere complete et transparente, avec une video immersive qui vous plonge au coeur du lieu.</p>
+                        </div>
+                        <div class="pb-6 border-b border-neutral-200/40">
+                            <p class="font-mono text-[10px] text-neutral-400 mb-2">Small — 13px / light</p>
+                            <p class="text-[13px] text-neutral-500 font-light">Grand Baie, Ile Maurice &middot; 120 m&sup2; &middot; 4 chambres &middot; 500 m&sup2; terrain</p>
+                        </div>
+                        <div class="pb-6 border-b border-neutral-200/40">
+                            <p class="font-mono text-[10px] text-neutral-400 mb-2">Weight scale</p>
+                            <div class="space-y-2">
+                                <div class="flex items-baseline gap-4">
+                                    <span class="font-mono text-[10px] text-neutral-400 w-12 shrink-0">200</span>
+                                    <p class="text-[16px] font-extralight text-neutral-700">L'immobilier de prestige, reinvente.</p>
+                                </div>
+                                <div class="flex items-baseline gap-4">
+                                    <span class="font-mono text-[10px] text-neutral-400 w-12 shrink-0">300</span>
+                                    <p class="text-[16px] font-light text-neutral-700">L'immobilier de prestige, reinvente.</p>
+                                </div>
+                                <div class="flex items-baseline gap-4">
+                                    <span class="font-mono text-[10px] text-neutral-400 w-12 shrink-0">400</span>
+                                    <p class="text-[16px] font-normal text-neutral-700">L'immobilier de prestige, reinvente.</p>
+                                </div>
+                                <div class="flex items-baseline gap-4">
+                                    <span class="font-mono text-[10px] text-neutral-400 w-12 shrink-0">500</span>
+                                    <p class="text-[16px] font-medium text-neutral-700">L'immobilier de prestige, reinvente.</p>
+                                </div>
+                                <div class="flex items-baseline gap-4">
+                                    <span class="font-mono text-[10px] text-neutral-400 w-12 shrink-0">600</span>
+                                    <p class="text-[16px] font-semibold text-neutral-700">L'immobilier de prestige, reinvente.</p>
+                                </div>
+                                <div class="flex items-baseline gap-4">
+                                    <span class="font-mono text-[10px] text-neutral-400 w-12 shrink-0">700</span>
+                                    <p class="text-[16px] font-bold text-neutral-700">L'immobilier de prestige, reinvente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 border border-neutral-200/40 inline-block">
+                        <p class="font-mono text-[11px] text-neutral-400">'Outfit', sans-serif — 200, 300, 400, 500, 600, 700</p>
+                    </div>
+                </div>
+
+                <!-- JetBrains Mono -->
+                <div>
+                    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-primary-500 block mb-8">JetBrains Mono — Labels techniques, references, overlines</span>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-mono text-[10px] text-neutral-400 w-40 shrink-0">Section label</span>
+                            <p class="font-mono text-[11px] tracking-[0.3em] uppercase text-neutral-400">01 — Notre approche</p>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-mono text-[10px] text-neutral-400 w-40 shrink-0">Reference</span>
+                            <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-neutral-600">CAR-2026-001</p>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-mono text-[10px] text-neutral-400 w-40 shrink-0">Overline</span>
+                            <p class="font-mono text-[11px] tracking-[0.3em] uppercase text-primary-500">Design System</p>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-mono text-[10px] text-neutral-400 w-40 shrink-0">Badge</span>
+                            <p class="font-mono text-[10px] tracking-[0.15em] uppercase text-neutral-700">Villa</p>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-mono text-[10px] text-neutral-400 w-40 shrink-0">Meta</span>
+                            <p class="font-mono text-[10px] text-neutral-400">bg-primary-500 &middot; px-12 &middot; py-5</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 border border-neutral-200/40 inline-block">
+                        <p class="font-mono text-[11px] text-neutral-400">'JetBrains Mono', monospace — 400, 500</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== 03 BOUTONS ==================== -->
+            <section id="boutons" class="py-24 border-b border-neutral-200/60">
+                <p class="section-label">03 — Boutons</p>
+
+                <h2 class="font-display text-3xl text-neutral-800 mb-14">Boutons & CTA</h2>
+
+                <div class="space-y-16">
+
+                    <!-- Primary buttons -->
+                    <div>
+                        <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-6">Primaire</h3>
+                        <div class="flex flex-wrap items-center gap-4 mb-4">
+                            <a href="#" class="btn-primary inline-flex items-center px-12 py-5 bg-primary-500 text-white text-[13px] font-medium tracking-[0.1em] uppercase">
+                                Acheter un bien
+                                <svg class="ml-3 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="#" class="btn-primary inline-flex items-center px-8 py-4 bg-primary-500 text-white text-[12px] font-medium tracking-[0.1em] uppercase">
+                                Vendre
+                                <svg class="ml-2 w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="#" class="btn-primary inline-flex items-center px-6 py-3 bg-primary-500 text-white text-[11px] font-medium tracking-[0.1em] uppercase">Voir</a>
+                        </div>
+                        <p class="font-mono text-[11px] text-neutral-400">bg-primary-500 &middot; text blanc &middot; rectangulaire (no radius) &middot; hover: fill animation scaleX</p>
+                    </div>
+
+                    <!-- Primary hover demo -->
+                    <div>
+                        <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-6">Primaire — Etats</h3>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="text-center">
+                                <a href="#" class="btn-primary inline-flex items-center px-10 py-5 bg-primary-500 text-white text-[13px] font-medium tracking-[0.1em] uppercase">Default</a>
+                                <p class="font-mono text-[10px] text-neutral-400 mt-2">Default</p>
+                            </div>
+                            <div class="text-center">
+                                <a href="#" class="inline-flex items-center px-10 py-5 bg-primary-700 text-white text-[13px] font-medium tracking-[0.1em] uppercase">Hover</a>
+                                <p class="font-mono text-[10px] text-neutral-400 mt-2">Hover</p>
+                            </div>
+                            <div class="text-center">
+                                <a href="#" class="inline-flex items-center px-10 py-5 bg-primary-500 text-white text-[13px] font-medium tracking-[0.1em] uppercase opacity-40 cursor-not-allowed">Disabled</a>
+                                <p class="font-mono text-[10px] text-neutral-400 mt-2">Disabled</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outline buttons -->
+                    <div>
+                        <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-6">Outline</h3>
+                        <div class="flex flex-wrap items-center gap-4 mb-4">
+                            <a href="#" class="btn-outline inline-flex items-center px-10 py-5 border border-primary-500 text-primary-500 text-[13px] font-medium tracking-[0.1em] uppercase">Vendre un bien</a>
+                            <a href="#" class="btn-outline inline-flex items-center px-10 py-5 border border-neutral-300 text-neutral-500 text-[13px] font-medium tracking-[0.1em] uppercase">En savoir plus</a>
+                        </div>
+                        <p class="font-mono text-[11px] text-neutral-400">border-primary-500 &middot; bg transparent &middot; hover: bg-primary-500 + text blanc</p>
+                    </div>
+
+                    <!-- Ghost buttons -->
+                    <div>
+                        <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-6">Ghost / Texte</h3>
+                        <div class="flex flex-wrap items-center gap-8 mb-4">
+                            <a href="#" class="ghost-link inline-flex items-center gap-3 text-[13px] font-medium tracking-[0.05em] text-primary-500">
+                                <span>Tous les biens</span>
+                                <svg class="ghost-arrow w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="#" class="ghost-link inline-flex items-center gap-3 text-[13px] font-medium tracking-[0.05em] text-neutral-500 hover:text-primary-500 transition-colors">
+                                <span>Voir la fiche</span>
+                                <svg class="ghost-arrow w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-2 text-[13px] text-neutral-400 hover:text-primary-500 transition-colors">
+                                <span class="w-8 h-px bg-current"></span>
+                                <span>Retour</span>
+                            </a>
+                        </div>
+                        <p class="font-mono text-[11px] text-neutral-400">Texte + fleche &middot; pas de fond &middot; hover: translateX sur la fleche</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== 04 COMPOSANTS ==================== -->
+            <section id="composants" class="py-24 border-b border-neutral-200/60">
+                <p class="section-label">04 — Composants</p>
+
+                <h2 class="font-display text-3xl text-neutral-800 mb-14">Composants d'interface</h2>
+
+                <!-- Property Card -->
+                <div class="mb-20">
+                    <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-8">Carte bien (landscape 16:10)</h3>
+
+                    <div class="max-w-md">
+                        <div class="property-card cursor-pointer group border border-neutral-200/60">
+                            <!-- Image -->
+                            <div class="relative aspect-[16/10] overflow-hidden">
+                                <div class="card-img w-full h-full" style="background: linear-gradient(135deg, #8f9d93, #4A5A4F, #252d28);"></div>
+                                <!-- Badges -->
+                                <div class="absolute top-4 left-4 flex gap-2">
+                                    <span class="px-3 py-1.5 bg-white/90 backdrop-blur-sm font-mono text-[10px] tracking-[0.15em] uppercase text-neutral-700">Villa</span>
+                                    <span class="px-3 py-1.5 bg-primary-500 font-mono text-[10px] tracking-[0.15em] uppercase text-white">Nouveau</span>
+                                </div>
+                                <!-- Heart -->
+                                <button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-500 hover:text-red-400 transition-colors">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                </button>
+                                <!-- Video icon -->
+                                <div class="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur-sm text-primary-500">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="p-6">
+                                <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-neutral-400 mb-2">CAR-2026-001</p>
+                                <h3 class="font-display text-xl text-neutral-800 mb-1">Villa contemporaine 4 chambres</h3>
+                                <p class="text-[14px] text-neutral-400 font-light mb-4">Grand Baie, Ile Maurice</p>
+                                <p class="text-[13px] text-neutral-500 font-light mb-5">120 m&sup2; &middot; 4 ch. &middot; 500 m&sup2; terrain</p>
+                                <div class="flex items-center justify-between pt-5 border-t border-neutral-100">
+                                    <p class="font-display text-xl text-primary-500">485 000 &euro;</p>
+                                    <span class="inline-flex items-center text-[12px] text-neutral-400 group-hover:text-primary-500 transition-colors">
+                                        Voir
+                                        <svg class="ml-1.5 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badges -->
+                <div class="mb-20">
+                    <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-8">Badges</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-neutral-100 font-mono text-[10px] tracking-[0.15em] uppercase text-neutral-700">Maison</span>
+                        <span class="px-4 py-2 bg-neutral-100 font-mono text-[10px] tracking-[0.15em] uppercase text-neutral-700">Appartement</span>
+                        <span class="px-4 py-2 bg-neutral-100 font-mono text-[10px] tracking-[0.15em] uppercase text-neutral-700">Terrain</span>
+                        <span class="px-4 py-2 bg-primary-500 font-mono text-[10px] tracking-[0.15em] uppercase text-white">Nouveau</span>
+                        <span class="px-4 py-2 bg-primary-100 font-mono text-[10px] tracking-[0.15em] uppercase text-primary-700">Acc. etrangers</span>
+                    </div>
+                    <p class="font-mono text-[11px] text-neutral-400 mt-4">font-mono &middot; 10px &middot; tracking 0.15em &middot; uppercase &middot; rectangulaire (no radius)</p>
+                </div>
+
+                <!-- Input field -->
+                <div class="mb-20">
+                    <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-8">Champ de saisie</h3>
+                    <div class="max-w-md space-y-6">
+                        <div>
+                            <label class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 block mb-2">Nom complet</label>
+                            <input type="text" class="input-field w-full px-4 py-3.5 bg-white border border-neutral-200 text-[15px] text-neutral-700 font-light placeholder:text-neutral-300" placeholder="Brice Portocarrero">
+                        </div>
+                        <div>
+                            <label class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 block mb-2">Email</label>
+                            <input type="email" class="input-field w-full px-4 py-3.5 bg-white border border-neutral-200 text-[15px] text-neutral-700 font-light placeholder:text-neutral-300" placeholder="brice@carrero.fr">
+                        </div>
+                    </div>
+                    <p class="font-mono text-[11px] text-neutral-400 mt-4">bg-white &middot; border-neutral-200 &middot; focus: border-primary-500 + shadow 3px rgba(74,90,79,0.06)</p>
+                </div>
+
+                <!-- Document row -->
+                <div>
+                    <h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-neutral-500 mb-8">Ligne document</h3>
+                    <div class="max-w-2xl space-y-0">
+                        <div class="flex items-center justify-between py-5 border-b border-neutral-200/60 group cursor-pointer hover:bg-neutral-50/50 px-4 -mx-4 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary-50 text-primary-500">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[14px] text-neutral-700 font-medium">Diagnostic de performance energetique</p>
+                                    <p class="font-mono text-[10px] text-neutral-400 mt-0.5">PDF &middot; 2.4 Mo &middot; 15 avr. 2026</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 text-neutral-400 group-hover:text-primary-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </div>
+                        <div class="flex items-center justify-between py-5 border-b border-neutral-200/60 group cursor-pointer hover:bg-neutral-50/50 px-4 -mx-4 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary-50 text-primary-500">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[14px] text-neutral-700 font-medium">Plan cadastral</p>
+                                    <p class="font-mono text-[10px] text-neutral-400 mt-0.5">PDF &middot; 1.1 Mo &middot; 12 avr. 2026</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 text-neutral-400 group-hover:text-primary-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </div>
+                        <div class="flex items-center justify-between py-5 border-b border-neutral-200/60 group cursor-pointer hover:bg-neutral-50/50 px-4 -mx-4 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary-50 text-primary-500">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[14px] text-neutral-700 font-medium">Titre de propriete</p>
+                                    <p class="font-mono text-[10px] text-neutral-400 mt-0.5">PDF &middot; 3.8 Mo &middot; 10 avr. 2026</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 text-neutral-400 group-hover:text-primary-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== 05 PRINCIPES DE DESIGN ==================== -->
+            <section id="principes" class="py-24">
+                <p class="section-label">05 — Principes de design</p>
+
+                <h2 class="font-display text-3xl text-neutral-800 mb-14">Principes directeurs</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+
+                    <!-- Fond blanc pur -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 border-2 border-neutral-200 flex items-center justify-center">
+                                <div class="w-6 h-6 bg-white border border-neutral-300"></div>
+                            </div>
+                            <h3 class="font-display text-xl text-neutral-800">Fond blanc pur</h3>
+                        </div>
+                        <p class="text-[15px] text-neutral-500 font-light leading-[1.9] mb-4">Le fond blanc #FFFFFF remplace le creme #F8F6F1 des propositions precedentes. Ce choix apporte plus de luminosite, de modernite et de lisibilite. Les photos de biens immobiliers ressortent mieux sur un fond neutre et pur. L'effet est plus galerie d'art que magazine papier.</p>
+                        <div class="flex gap-3">
+                            <div class="w-16 h-10 bg-white border-2 border-primary-500"></div>
+                            <div class="w-16 h-10 bg-cream border border-neutral-200 opacity-40"></div>
+                        </div>
+                        <p class="font-mono text-[10px] text-neutral-400 mt-2">P3 : #FFFFFF (actif) vs P1/P2 : #F8F6F1 (abandonne)</p>
+                    </div>
+
+                    <!-- Lignes fines -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 border border-neutral-200 flex items-center justify-center">
+                                <div class="w-8 h-px bg-neutral-400"></div>
+                            </div>
+                            <h3 class="font-display text-xl text-neutral-800">Lignes fines</h3>
+                        </div>
+                        <p class="text-[15px] text-neutral-500 font-light leading-[1.9] mb-4">Les separateurs sont discrets : 1px de large, couleur neutre a faible opacite. Ils structurent sans alourdir. Les bordures des composants suivent la meme regle : fines, legeres, presque invisibles.</p>
+                        <div class="space-y-4">
+                            <div class="h-px bg-neutral-200/60"></div>
+                            <div class="h-px" style="background: linear-gradient(90deg, #4A5A4F, #D4D4CF, transparent);"></div>
+                            <div class="h-px" style="background: linear-gradient(90deg, transparent, #D4D4CF, transparent);"></div>
+                        </div>
+                        <p class="font-mono text-[10px] text-neutral-400 mt-2">1px &middot; border-neutral-200/60 &middot; gradient fadeout</p>
+                    </div>
+
+                    <!-- Espacement genereux -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 border border-neutral-200 flex items-center justify-center">
+                                <div class="grid grid-cols-3 gap-1.5 w-6 h-6">
+                                    <div class="bg-primary-200"></div>
+                                    <div></div>
+                                    <div class="bg-primary-200"></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div class="bg-primary-200"></div>
+                                    <div></div>
+                                    <div class="bg-primary-200"></div>
+                                </div>
+                            </div>
+                            <h3 class="font-display text-xl text-neutral-800">Espacement genereux</h3>
+                        </div>
+                        <p class="text-[15px] text-neutral-500 font-light leading-[1.9] mb-4">Beaucoup de blanc entre les sections. Les marges verticales entre sections sont de 96px (py-24). Le contenu respire, chaque element a son espace. L'effet est calme, pose, professionnel.</p>
+                        <div class="flex items-end gap-2">
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-300 w-3" style="height:8px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">8</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-400 w-3" style="height:16px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">16</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-400 w-3" style="height:24px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">24</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-500 w-3" style="height:32px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">32</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-500 w-3" style="height:48px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">48</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-600 w-3" style="height:64px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">64</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="bg-primary-700 w-3" style="height:96px;"></div>
+                                <span class="font-mono text-[9px] text-neutral-400">96</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grain subtil -->
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 border border-neutral-200 flex items-center justify-center relative overflow-hidden" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 64px; opacity: 0.3;">
+                            </div>
+                            <h3 class="font-display text-xl text-neutral-800">Grain subtil</h3>
+                        </div>
+                        <p class="text-[15px] text-neutral-500 font-light leading-[1.9] mb-4">Une texture grain legere est appliquee en overlay fixe sur l'ensemble de la page (opacity 0.03). Elle ajoute une materialite discrete qui evite l'aspect trop numerique du blanc pur. Sur les sections sombres, l'opacite est legerement augmentee.</p>
+                        <p class="font-mono text-[10px] text-neutral-400">SVG feTurbulence &middot; fixed overlay &middot; pointer-events: none &middot; z-index: 9999</p>
+                    </div>
+
+                    <!-- Animations au scroll -->
+                    <div class="md:col-span-2">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 border border-neutral-200 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                            </div>
+                            <h3 class="font-display text-xl text-neutral-800">Animations au scroll</h3>
+                        </div>
+                        <p class="text-[15px] text-neutral-500 font-light leading-[1.9] mb-4 max-w-2xl">Les elements apparaissent progressivement au scroll avec un reveal subtil : translateY(30px) vers 0, opacity de 0 a 1, easing cubic-bezier(0.16, 1, 0.3, 1). La duree est de 0.8s. L'effet est fluide et non intrusif — il accompagne la lecture sans la distraire.</p>
+                        <div class="flex gap-3">
+                            <div class="p-4 border border-neutral-200/60 text-center">
+                                <p class="font-mono text-[10px] text-neutral-400 mb-1">translateY</p>
+                                <p class="font-mono text-[12px] text-primary-500">30px &rarr; 0</p>
+                            </div>
+                            <div class="p-4 border border-neutral-200/60 text-center">
+                                <p class="font-mono text-[10px] text-neutral-400 mb-1">opacity</p>
+                                <p class="font-mono text-[12px] text-primary-500">0 &rarr; 1</p>
+                            </div>
+                            <div class="p-4 border border-neutral-200/60 text-center">
+                                <p class="font-mono text-[10px] text-neutral-400 mb-1">duration</p>
+                                <p class="font-mono text-[12px] text-primary-500">0.8s</p>
+                            </div>
+                            <div class="p-4 border border-neutral-200/60 text-center">
+                                <p class="font-mono text-[10px] text-neutral-400 mb-1">easing</p>
+                                <p class="font-mono text-[12px] text-primary-500">cubic-bezier(0.16, 1, 0.3, 1)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-neutral-200/60 mt-8">
+            <div class="max-w-[1200px] mx-auto px-8 py-12 flex items-center justify-between">
+                <p class="font-mono text-[11px] text-neutral-400 tracking-[0.1em]">CARRERO IMMOBILIER — Design System Proposition 3 — Avril 2026</p>
+                <p class="font-mono text-[11px] text-neutral-300">5 sections &middot; Fond blanc #FFFFFF</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Sidebar active state on scroll -->
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+</body>
+</html>
