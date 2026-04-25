@@ -4,3 +4,6 @@ node_modules
 .DS_Store
 .vscode
 .ai
+/maquettes
+/documentation
+CLAUDE_CONTEXT.md
